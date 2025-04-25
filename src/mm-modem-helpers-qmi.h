@@ -136,6 +136,7 @@ QmiWmsStorageType mm_sms_storage_to_qmi_storage_type (MMSmsStorage storage);
 MMSmsStorage mm_sms_storage_from_qmi_storage_type (QmiWmsStorageType qmi_storage);
 
 MMSmsState mm_sms_state_from_qmi_message_tag (QmiWmsMessageTagType tag);
+MMCbmState mm_cbm_state_from_qmi_message_tag (QmiWmsMessageTagType tag);
 
 /*****************************************************************************/
 /* QMI/WDS to MM translations */
@@ -217,8 +218,9 @@ typedef struct {
     MMModemCapability current_capabilities;
 } MMQmiSupportedModesContext;
 
-GArray *mm_supported_modes_from_qmi_supported_modes_context (MMQmiSupportedModesContext *ctx,
-                                                             gpointer                    log_object);
+GArray *mm_supported_modes_from_qmi_supported_modes_context (MMQmiSupportedModesContext  *ctx,
+                                                             gpointer                     log_object,
+                                                             GError                     **error);
 
 /*****************************************************************************/
 /* QMI unique id manipulation */
